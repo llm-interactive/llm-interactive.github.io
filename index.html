@@ -1,32 +1,154 @@
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    
-<div class="container mx-auto flex justify-center items-center">
+<link rel="stylesheet" href="main.css">
+<h1 class="px-12 pt-6 font-bold text-center"> 
+    The Current State of Large Language Models on the Public and the Environment</h1>
+<h2 class="px-12 pb-6 font-medium text-center"> Neil Phan </h2>
+
+<div class="px-48 py-24 text-center">
+    <div class="pb-48">
+        <h1> 
+            Large Language Models (LLMs) are becoming cheaper within the recent years, but are becoming more and more expensive to improve.
+        </h1>
+        <canvas id="cost"></canvas>
+    </div>
+
+    <div class="pb-48">
+        <h1>
+            LLMs in general are becoming an environmental expense.
+            <canvas id="envir"></canvas>
+        </h1>
+    </div>
+
+    <div class="pb-48">
+        <h1>
+            AI Misuse has been exponentially increasing each year.
+        </h1>
+            <canvas id="misuse"></canvas>
+    </div>
+
+    <div class="pb-48">
+        <h1>
+            Lawsuits relating to AI have also been creeping up.
+        </h1>
+            <canvas id="lawsuit"></canvas>
+    </div>
+
 </div>
 
-<div>
-  <canvas id="myChart"></canvas>
+<h1 class="p-48 font-bold text-center">So what now?</h1>
+
+<div class="p-48">
+    <h1 class="pb-8"> My goals are to understand the current scope of the large language model ecosystem, and understand how it is currently affecting society and the environment.</h1>
+    <h2 class="pb-4"> More precisely, I hope to investigate the contributions that large language models have made to our world so far, both positive and negative. To achieve this in the scope of this project, I will be focusing on OpenAI and its connections to the public and the environment using Actor Network Theory, with an emphasis on its connections to its adjacent industries, the public, and the environment. I will go in depth to understand what impacts OpenAI has made in the start of its career of creating the GPT series in hopes of learning more about their goals in alignment safety in AI and lessons they've learned along the way. </h2>
+    <h2 class="pb-4">I hope to learn more about the current trends in LLMs and AI in general, so that I can relay that information back to the people and give them a greater understanding of what to expect and what actions to take to minimize LLM misuse and maximize its benefits. </h2>
+    <h2 class="pb-12"> For now, there are many good resources to look at that cover the current status of AI in general. For example, the statistics I found above were made through Stanford's AI Index report found <a href="https://aiindex.stanford.edu/report/"> here.</a> A more concise review of LLMs will be important given the recent rise of ChatGPT that sparked both amazment and fear around the world. </h2>
+
+
+    <h2> When I am finished with my prospectus on LLM contributions to society and impact, you can find a link to it below. I look forward to diving deep into the core! </h2>
+    <h1> - neil </h1>
+
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-  const ctx = document.getElementById('myChart');
+  const cost = document.getElementById('cost');
+  const envir = document.getElementById('envir');
+  const misuse = document.getElementById('misuse');
+  const lawsuit = document.getElementById('lawsuit');
 
-  new Chart(ctx, {
+  new Chart(cost, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['GPT-2', 'GPT-3', 'Megatron', 'Gopher', 'PaLM', 'Bloom'],
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: '',
+        data: [0.05, 1.80, 11.35, 8.55, 8.01, 2.29],
         borderWidth: 1
       }]
     },
     options: {
       scales: {
         y: {
-          beginAtZero: true
-        }
+          beginAtZero: true,
+          title: {
+              display: true,
+              text: 'Training Costs (in Millions of USD)'
+          }
+
+        },
+      }
+    }
+  });
+  new Chart(envir, {
+    type: 'bar',
+    data: {
+      labels: ['GPT-3', 'Gopher', 'OPT', 'Avg. Car Fuel, Lifetime', 'BLOOM', 'Avg. American, 1 Year', 'Avg. Human, 1 Year', 'Air Travel, 1 Person, SF-NY'],
+      datasets: [{
+        label: '',
+        data: [502, 353, 70, 63, 25, 18.08, 5.51, 0.99],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+              display: true,
+              text: 'Carbon Emission (Tonnes)'
+          }
+
+        },
+      }
+    }
+  });
+
+  new Chart(misuse, {
+    type: 'bar',
+    data: {
+      labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+      datasets: [{
+        label: '',
+        data: [12, 40, 58, 80, 126, 223, 260],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+              display: true,
+              text: '# of AI Misuse Events'
+          }
+
+        },
+      }
+    }
+  });
+
+  new Chart(lawsuit, {
+    type: 'line',
+    data: {
+      labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+      datasets: [{
+        label: '',
+        data: [20, 17, 29, 37, 65, 92, 110],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+              display: true,
+              text: '# of AI-related Cases'
+          }
+
+        },
       }
     }
   });
@@ -34,4 +156,4 @@
 
  
 
- 
+
